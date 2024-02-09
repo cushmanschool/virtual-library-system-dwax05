@@ -4,13 +4,17 @@ public class Library {
 
     ArrayList<Book> books;
 
+    public Library() {
+        this.books = new ArrayList<>();
+    }
+
     public void addBook(Book book) {
         books.add(book);
     }
 
     public void returnBook(String isbn) {
         for (Book book : books) {
-            if (book.ISBN.equals(isbn)) {
+            if (book.ISBN == isbn) {
                 book.setAvailability(true);
                 System.out.println("Book with ISBN " + isbn + " has been returned.");
             }
@@ -19,7 +23,7 @@ public class Library {
 
     public void lendBook(String isbn) {
         for (Book book : books) {
-            if (book.ISBN.equals(isbn)) {
+            if (book.ISBN == isbn) {
                 book.setAvailability(false);
                 System.out.println("Book with ISBN " + isbn + " has been lent out.");
             }
@@ -28,7 +32,7 @@ public class Library {
 
     public Boolean checkBookAvailability(String isbn) {
         for (Book book : books) {
-            if (book.ISBN.equals(isbn)) {
+            if (book.ISBN == isbn) {
                 return book.isAvailable();
             }
         }
